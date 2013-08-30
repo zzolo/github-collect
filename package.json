@@ -1,0 +1,18 @@
+{
+  "name": "repo-watch",
+  "version": "0.0.0",
+  "description": "A NodeJS library for making JSON and RSS feeds of Github objects like repositories, members, gists for users and orgs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/run.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zzolo/repo-watch.git"
+  },
+  "author": "Alan Palazzolo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzolo/repo-watch/issues"
+  }
+}
