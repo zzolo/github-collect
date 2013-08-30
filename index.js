@@ -5,3 +5,11 @@
  * repositories, members, gists for users and orgs.
  */
 
+function get(usernames, options, done) {
+
+  return {};
+}
+
+module.exports = {
+  get: get
+};
