@@ -14,5 +14,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zzolo/repo-watch/issues"
+  },
+  "dependencies": {
+    "node-github": "0.0.3"
   }
 }
