@@ -8,7 +8,7 @@
 var _ = require('lodash');
 var q = require('q');
 
-var env = require('rc')('repo_watch', {
+var env = require('rc')('github_collect', {
   github_token: ''
 });
 var github = new (require('github'))({
