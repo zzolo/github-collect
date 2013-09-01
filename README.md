@@ -5,12 +5,12 @@ repositories, members, gists for users and orgs.
 
 ## Install
 
-    npm install repo-watch
+    npm install github-collect
 
 ## Configuration
 
-Configuration is handled by [rc]() so any of those valid ways of defining
-configuration will work.
+Configuration is handled by [rc](https://github.com/dominictarr/rc) so any of 
+those valid ways of definingconfiguration will work.
 
 * `github_token`: Your Oauth token for Github; you can create one on your Github
 account under Settings ->  Applications.
@@ -19,16 +19,19 @@ Example of using an environment variable:
 
 ## Use
 
-    var rw = require('repo-watch');
+    var gc = require('github-collect');
 
-    // Uses promises with [q]()
-    rw.get('username').done(function(data) {
+    // Get returns a promise
+    gc.get('username').done(function(data) {
       console.log(data);
     });
 
     // Username can be an array or a string of names separated by columns
-    rw.get('username1,username2');
-    rw.get(['username1', 'username2']);
+    gc.get('username1,username2');
+    gc.get(['username1', 'username2']);
+
+
+Provides promises with [q](https://github.com/kriskowal/q).
 
 ## Data structure
 
