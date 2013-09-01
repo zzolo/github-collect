@@ -1,6 +1,6 @@
 {
   "name": "github-collect",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A NodeJS library for getting Github objects like repositories, members, gists for users and orgs.",
   "main": "index.js",
   "scripts": {
