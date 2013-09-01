@@ -1,6 +1,6 @@
-# Repo Watch
+# Github Collect
 
-A NodeJS library for making JSON and RSS feeds of Github objects like
+A NodeJS library for getting Github objects like
 repositories, members, gists for users and orgs.
 
 ## Install
