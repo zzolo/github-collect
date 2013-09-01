@@ -30,6 +30,30 @@ Example of using an environment variable:
     rw.get('username1,username2');
     rw.get(['username1', 'username2']);
 
+## Data structure
+
+What you will get back in return is a keyed object by username of the
+Github information for that username with a custom property called `objects`
+which holds the supplementary objects.
+
+    {
+      organization_name: {
+        ...,
+        objects: {
+          repos: [],
+          gists: [],
+          members: []
+        }
+      },
+      user_name: {
+        ...,
+        objects: {
+          repos: [],
+          gists: []
+        }
+      }
+    }
+
 ## Test
 
     npm install -g mocha
