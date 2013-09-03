@@ -27,17 +27,37 @@ function githubAuth() {
 // Wrap github calls in to promises
 function qG(options) {
   var defer = q.defer();
+  var compiledData = [];
 
-  githubAuth()[options.obj][options.method](options,
-    function(error, data) {
+  // Recursive call to paginate
+  function qGCall(pageLink) {
+    var methodCall;
+
+    // Callback
+    function callback(error, data) {
       if (error) {
         defer.reject(new Error(error));
       }
       else {
-        defer.resolve(data);
+        compiledData = compiledData.concat(data);
+        if (github.hasNextPage(data)) {
+          qGCall(data);
+        }
+        else {
+          defer.resolve(compiledData);
+        }
       }
     }
-  );
+
+    // If the call is a link to another page, use that.
+    if (pageLink) {
+      method = github.getNextPage(pageLink, callback);
+    }
+    else {
+      githubAuth()[options.obj][options.method](options, callback);
+    }
+  }
+  qGCall();
 
   return defer.promise;
 }
@@ -92,10 +112,10 @@ function get(usernames, options) {
       obj: 'user', method: 'getFrom', user: u
     })
     .done(function(data) {
-      collection[u] = data;
+      collection[u] = data[0];
 
       // Get objects for the specific user
-      getObjects(data).done(function(objData) {
+      getObjects(data[0]).done(function(objData) {
         collection[u].objects = collection[u].objects || {};
         collection[u].objects.repos = objData[0];
         collection[u].objects.gists = objData[1];
