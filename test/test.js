@@ -28,9 +28,9 @@ describe('Get method', function() {
   it('get multiple users', function(done) {
     this.timeout(0);
 
-    rw.get('zzolo,minnpost').done(function(data) {
+    rw.get('zzolo,minnpost,codeforamerica,guardianinteractive').done(function(data) {
       // For easy viewing
-      //fs.writeFileSync('./.tmp/zzolo-minnpost.json', JSON.stringify(data));
+      fs.writeFileSync('./.tmp/zzolo-minnpost.json', JSON.stringify(data));
       assert.equal('object', typeof data);
       assert.equal('object', typeof data.zzolo);
       assert.equal('object', typeof data.zzolo.objects);
